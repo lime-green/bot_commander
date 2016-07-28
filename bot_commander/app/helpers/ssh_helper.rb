@@ -1,4 +1,4 @@
-class SshHelper
+module SshHelper
   def self.exec!(ssh, command)
     stdout_data = ""
     stderr_data = ""

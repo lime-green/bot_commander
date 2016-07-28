@@ -1,0 +1,188 @@
+.hidden {
+    visibility: hidden;
+}
+
+.lists {
+    display: flex;
+    justify-content: center;
+}
+
+.appContainer > a {
+    display: block;
+    float: left;
+}
+
+.details label ~ span {
+    color: blue;
+}
+
+ul {
+    padding: 0;
+}
+
+.details {
+    margin-left: 10px;
+}
+
+li {
+    list-style: none;
+    border-bottom: 1px solid lightblue;
+}
+
+.server, .rsAccount {
+    border-radius: 10px;
+    padding-top: 10px;
+}
+
+.server:hover, .rsAccount:hover {
+    background: whitesmoke;
+}
+
+.hidden-h {
+    display: block !important;
+    visibility: hidden;
+}
+
+.initializeDiv {
+    margin: auto;
+}
+
+.serverList, .rsAccountList {
+    width: 40%;
+    position: relative;
+}
+
+.rsAccountList {
+    margin-left: 50px;
+}
+
+h1 {
+    text-decoration: underline;
+}
+
+h1 > span {
+    margin-right: 10px;
+}
+
+.fa-refresh {
+    font-size: 2em !important;
+    margin: auto;
+    color: white;
+}
+
+.fa-refresh:hover {
+    cursor: pointer;
+}
+
+.refreshDiv {
+    margin: auto;
+    text-align: center;
+    background: cornflowerblue;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.appContainer {
+    margin-top: 50px;
+}
+
+.isInitializingDiv {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+}
+
+.fa-spinner {
+    font-size: 6em !important;
+    color: blue;
+}
+
+.deployDiv button, .initializeDiv button{
+    width: 100%;
+}
+
+.modalContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1001;
+}
+
+.modal-m {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    background: white;
+}
+
+.buttonContainer button {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.modalContent {
+    position: relative;
+    height: 100%;
+}
+
+.buttonContainer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.select-style {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+
+    background: #fff url("./arrowdown.gif") no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+.alert {
+    margin-bottom: 10px !important;
+    margin: auto;
+    width: 90%;
+    position: relative;
+}
+
+.alert .fa-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.alert .fa-close:hover {
+    cursor: pointer;
+}

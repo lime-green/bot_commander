@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726011604) do
+ActiveRecord::Schema.define(version: 20160726200414) do
 
   create_table "dreambot_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username",   null: false
@@ -20,12 +20,13 @@ ActiveRecord::Schema.define(version: 20160726011604) do
   end
 
   create_table "rs_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "username",   null: false
-    t.string   "password",   null: false
+    t.string   "username",     null: false
+    t.string   "password",     null: false
     t.string   "state"
     t.integer  "server_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.datetime "heartbeat_at"
     t.index ["server_id"], name: "index_rs_accounts_on_server_id", using: :btree
   end
 

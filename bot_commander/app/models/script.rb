@@ -1,5 +1,7 @@
 class Script < ApplicationRecord
-  def self.get_ram
+  validates :name, presence: true
+
+  def self.get_ram_setting
     255
   end
 end

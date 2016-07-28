@@ -1,3 +1,7 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  rescue_from StandardError, with: :render_unknown_error
+
+  def render_unknown_error(error)
+    render(json: {errors: [error]}, status: 500)
+  end
 end

@@ -1,16 +1,22 @@
 class InitServerService
-  def self.init(host)
-    Net::SSH.start(host, 'root') do |ssh|
-      ret = SshHelper.exec!(ssh, script)
+  def self.init(server)
+    raise "Needs to be in proper state" unless server.spawned?
 
+    Net::SSH.start(server.ip, 'root', timeout: 5) do |ssh|
+      server.mark_initializing!
+
+      ret = SshHelper.exec!(ssh, script)
       if ret == 0
-        server = Server.find_by!(ip: host)
         server.mark_ready!
+      else
+        server.mark_spawned!
+        raise "Script failed to initialize the server. Unknown error occurred"
       end
     end
 
-  rescue Net::SSH::AuthenticationFailed
-    return -1
+  rescue StandardError => e
+    server.mark_spawned! if server.initializing?
+    raise e
   end
 
   private

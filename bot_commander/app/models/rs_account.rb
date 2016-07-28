@@ -2,6 +2,10 @@ class RsAccount < ApplicationRecord
   include ActiveModel::Transitions
 
   belongs_to :server, required: false
+  scope :limbo_accounts, -> { where(["heartbeat_at < ?", Time.now - 3.minutes]) }
+
+  validates :username, presence: true
+  validates :password, presence: true
 
   state_machine do
     state :created
@@ -22,7 +26,16 @@ class RsAccount < ApplicationRecord
     end
 
     event :mark_running do
-      transitions to: :running, from: :done_tutorial
+      transitions to: :running, from: :ready, on_transition: :receive_heartbeat!
     end
+
+    event :stop_running do
+      transitions to: :ready, from: :running
+    end
+  end
+
+  def receive_heartbeat!
+    self.heartbeat_at = Time.now
+    self.save!
   end
 end
